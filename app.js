@@ -16,10 +16,12 @@ if (process.env.NODE_ENV !== 'test') {
 
 app.use(bodyParser.json());   //this line must always be above...
 routes(app);                  // ... this line
-
 app.use((err, req, res, next) => {
   // console.log(err);
   res.status(422).send({ error: err.message });
 });
+
+
+
 
 module.exports = app;

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-// connection to test database here (not in app.js) so that a connection is definately made before any tests are run.
+// connection to test database here (not in app.js) so that a connection is definately made before any tests are run. this is where we can use .done()
 before((done) => {
     mongoose.connect('mongodb://localhost/muber_test',{ useNewUrlParser: true });
     mongoose.connection
