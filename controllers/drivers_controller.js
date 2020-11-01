@@ -5,11 +5,12 @@ module.exports = {
     res.send({ hi: 'there' });
   },
 
-  create(req, res) {
+  create(req, res, next) {
     // console.log(req.body);
     const driverProps = req.body; // contains new driver properties such as email, name etc. from bodyParser
 
     Driver.create(driverProps)
-      .then(driver => res.send(driver));
+      .then(driver => res.send(driver))
+      .catch(next); // if anything goes wrong, pass onto the next middleware
   }
 };
